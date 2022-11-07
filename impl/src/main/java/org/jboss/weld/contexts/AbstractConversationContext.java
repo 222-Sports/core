@@ -230,7 +230,9 @@ public abstract class AbstractConversationContext<R, S> extends AbstractBoundCon
                     // WELD-1690 Don't associate a conversation which was ended (race condition)
                     if (conversation.isTransient()) {
                         associateRequestWithNewConversation();
-                        throw ConversationLogger.LOG.noConversationFoundToRestore(cid);
+                      //Update this to throw a DEBUG statement instead
+                        ConversationLogger.LOG.noConversationFoundToRestore(cid);
+                        //throw ConversationLogger.LOG.noConversationFoundToRestore(cid);
                     }
                     associateRequest(conversation);
                 } else {
@@ -241,7 +243,9 @@ public abstract class AbstractConversationContext<R, S> extends AbstractBoundCon
             } else {
                 // CDI 6.7.4 we must activate a new transient conversation before we throw the exception
                 associateRequestWithNewConversation();
-                throw ConversationLogger.LOG.noConversationFoundToRestore(cid);
+                //Update this to throw a DEBUG statement instead
+                ConversationLogger.LOG.noConversationFoundToRestore(cid);
+                //throw ConversationLogger.LOG.noConversationFoundToRestore(cid);
             }
         } else {
             associateRequestWithNewConversation();
