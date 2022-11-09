@@ -88,7 +88,7 @@ public interface ServletLogger extends WeldLogger {
     void servlet2Environment();
 
     @SuppressWarnings("weldlog:method-interface")
-    @LogMessage(level = Level.WARN)
+    @LogMessage(level = Level.DEBUG)
     @Message(id = 717, value = "Unable to deactivate context {0} when destroying request {1}", format = Format.MESSAGE_FORMAT)
     void unableToDeactivateContext(Object context, Object request);
 
